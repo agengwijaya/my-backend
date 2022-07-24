@@ -14,42 +14,33 @@ class Api extends RestController
 
   public function users_get()
   {
-    // Users from a data store e.g. database
-    $users = $this->Api_model->get_users();
+    $this->benchmark->mark('code_start');
+    $id = $this->get('id');
 
-    $id = $this->get( 'id' );
-
-    if ( $id === null )
-    {
-        // Check if the users data store contains users
-        if ( $users )
-        {
-            // Set the response and exit
-            $this->response( $users, 200 );
-        }
-        else
-        {
-            // Set the response and exit
-            $this->response( [
-                'status' => false,
-                'message' => 'No users were found'
-            ], 404 );
-        }
-    }
-    else
-    {
-        if ( array_key_exists( $id, $users ) )
-        {
-            $this->response( $users[$id], 200 );
-        }
-        else
-        {
-            $this->response( [
-                'status' => false,
-                'message' => 'No such user found'
-            ], 404 );
-        }
+    if ($id === null) {
+      $users = $this->Api_model->get_users();
+    } else {
+      $users = $this->Api_model->get_users_by_id($id);
     }
 
+    if ($users) {
+      $this->benchmark->mark('code_end');
+      $duration = $this->benchmark->elapsed_time('code_start', 'code_end');
+      $this->response([
+        'status' => true,
+        'message' => 'Data found',
+        'data' => $users,
+        'duration' => $duration,
+      ], 200);
+    } else {
+      $this->benchmark->mark('code_end');
+      $duration = $this->benchmark->elapsed_time('code_start', 'code_end');
+      $this->response([
+        'status' => false,
+        'message' => 'No users were found',
+        'data' => null,
+        'duration' => $duration,
+      ], 404);
+    }
   }
 }

@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['api/v1/users'] = 'api/users';
+$route['api/v1/users/(:num)'] = 'api/users/$1';
