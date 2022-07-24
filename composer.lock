@@ -4,8 +4,46 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c6e5f737429ca8da80ddc318a63124be",
-    "packages": [],
+    "content-hash": "bd146d0c17492ac9e6530197e27828fe",
+    "packages": [
+        {
+            "name": "chriskacerguis/codeigniter-restserver",
+            "version": "3.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chriskacerguis/codeigniter-restserver.git",
+                "reference": "f386f4e0013daadaa213681a0a41af69aa81d9de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chriskacerguis/codeigniter-restserver/zipball/f386f4e0013daadaa213681a0a41af69aa81d9de",
+                "reference": "f386f4e0013daadaa213681a0a41af69aa81d9de",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "chriskacerguis\\RestServer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Kacerguis",
+                    "email": "chriskacerguis@gmail.com"
+                }
+            ],
+            "description": "CI Rest Server",
+            "support": {
+                "issues": "https://github.com/chriskacerguis/codeigniter-restserver/issues",
+                "source": "https://github.com/chriskacerguis/codeigniter-restserver/tree/3.1.4"
+            },
+            "time": "2022-02-24T18:02:52+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
@@ -2080,7 +2118,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4.8"
+        "php": ">=5.3.7"
     },
     "platform-dev": [],
     "plugin-api-version": "2.2.0"
